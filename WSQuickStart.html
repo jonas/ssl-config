@@ -143,7 +143,7 @@ If you&#39;d like to turn off curl&#39;s verification of the certificate, use
 <p>Then you have to obtain the CA&rsquo;s certificate, and add it to the trust store.</p>
 <h2><a href="#obtain-the-root-ca-certificate" name="obtain-the-root-ca-certificate" class="anchor"><span class="anchor-link"></span></a>Obtain the Root CA Certificate</h2>
 <p>Ideally this should be done out of band: the owner of the web service should provide you with the root CA certificate directly, in a way that can&rsquo;t be faked, preferably in person.</p>
-<p>In the case where there is no communication (and this is <strong>not recommended</strong>), you can sometimes get the root CA certificate directly from the certificate chain, using <a href="http://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html">keytool from JDK 1.8</a>:</p>
+<p>In the case where there is no communication (and this is <strong>not recommended</strong>), you can sometimes get the root CA certificate directly from the certificate chain, using <a href="http://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html"><code>keytool</code> from JDK 1.8</a>:</p>
 <pre class="prettyprint"><code>keytool -printcert -sslserver playframework.com
 </code></pre>
 <p>which returns #2 as the root certificate:</p>
