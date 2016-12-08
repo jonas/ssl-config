@@ -221,7 +221,7 @@ keytool -list -v \
   -keystore example.com.jks \
   -storepass:env PW</code></pre>
 <p>You should see:</p>
-<pre class="prettyprint"><code>Alias name: example.com
+<pre><code>Alias name: example.com
 Creation date: ...
 Entry type: PrivateKeyEntry
 Certificate chain length: 2
@@ -267,15 +267,15 @@ openssl pkcs12 \
 rm example.com.p12</code></pre>
 <p>Now that you have both <code>example.com.crt</code> (the public key certificate) and <code>example.com.key</code> (the private key), you can set up an HTTPS server.</p>
 <p>For example, to use the keys in nginx, you would set the following in <code>nginx.conf</code>:</p>
-<pre class="prettyprint"><code>ssl_certificate      /etc/nginx/certs/example.com.crt;
+<pre><code>ssl_certificate      /etc/nginx/certs/example.com.crt;
 ssl_certificate_key  /etc/nginx/certs/example.com.key;
 </code></pre>
 <p>If you are using client authentication (covered in <strong>Client Configuration</strong> below), you will also need to add:</p>
-<pre class="prettyprint"><code>ssl_client_certificate /etc/nginx/certs/clientca.crt;
+<pre><code>ssl_client_certificate /etc/nginx/certs/clientca.crt;
 ssl_verify_client on;
 </code></pre>
 <p>You can check the certificate is what you expect by checking the server:</p>
-<pre class="prettyprint"><code>keytool -printcert -sslserver example.com
+<pre><code>keytool -printcert -sslserver example.com
 </code></pre>
 <h2><a href="#client-configuration" name="client-configuration" class="anchor"><span class="anchor-link"></span></a>Client Configuration</h2>
 <p>There are two parts to setting up a client &ndash; configuring a trust store, and configuring client authentication.</p>
@@ -298,7 +298,7 @@ keytool -list -v \
   -keystore exampletrust.jks \
   -storepass changeit</code></pre>
 <p>You should see a <code>trustedCertEntry</code> for exampleca:</p>
-<pre class="prettyprint"><code>Alias name: exampleca
+<pre><code>Alias name: exampleca
 Creation date: ...
 Entry type: trustedCertEntry
 
@@ -416,7 +416,7 @@ keytool -list -v \
   -keystore client.jks \
   -storepass:env PW</code></pre>
 <p>There should be one alias <code>client</code>, looking like the following:</p>
-<pre class="prettyprint"><code>Your keystore contains 1 entry
+<pre><code>Your keystore contains 1 entry
 
 Alias name: client
 Creation date: ...

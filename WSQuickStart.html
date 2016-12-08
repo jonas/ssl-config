@@ -123,10 +123,10 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <h2><a href="#connecting-to-a-remote-server-over-https" name="connecting-to-a-remote-server-over-https" class="anchor"><span class="anchor-link"></span></a>Connecting to a Remote Server over HTTPS</h2>
 <p>If the remote server is using a certificate that is signed by a well known certificate authority, then WS should work out of the box without any additional configuration. You&rsquo;re done!</p>
 <p>If the web service is not using a well known certificate authority, then it is using either a private CA or a self-signed certificate. You can determine this easily by using curl:</p>
-<pre class="prettyprint"><code>curl https://financialcryptography.com # uses cacert.org as a CA
+<pre class="prettyprint"><code class="language-sh">curl https://financialcryptography.com # uses cacert.org as a CA
 </code></pre>
 <p>If you receive the following error:</p>
-<pre class="prettyprint"><code>curl: (60) SSL certificate problem: Invalid certificate chain
+<pre><code>curl: (60) SSL certificate problem: Invalid certificate chain
 More details here: http://curl.haxx.se/docs/sslcerts.html
 
 curl performs SSL certificate verification by default, using a &quot;bundle&quot;
@@ -144,19 +144,19 @@ If you&#39;d like to turn off curl&#39;s verification of the certificate, use
 <h2><a href="#obtain-the-root-ca-certificate" name="obtain-the-root-ca-certificate" class="anchor"><span class="anchor-link"></span></a>Obtain the Root CA Certificate</h2>
 <p>Ideally this should be done out of band: the owner of the web service should provide you with the root CA certificate directly, in a way that can&rsquo;t be faked, preferably in person.</p>
 <p>In the case where there is no communication (and this is <strong>not recommended</strong>), you can sometimes get the root CA certificate directly from the certificate chain, using <a href="http://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html"><code>keytool</code> from JDK 1.8</a>:</p>
-<pre class="prettyprint"><code>keytool -printcert -sslserver playframework.com
+<pre><code>keytool -printcert -sslserver playframework.com
 </code></pre>
 <p>which returns #2 as the root certificate:</p>
-<pre class="prettyprint"><code>Certificate #2
+<pre><code>Certificate #2
 ====================================
 Owner: CN=GlobalSign Root CA, OU=Root CA, O=GlobalSign nv-sa, C=BE
 Issuer: CN=GlobalSign Root CA, OU=Root CA, O=GlobalSign nv-sa, C=BE
 </code></pre>
 <p>To get the certificate chain in an exportable format, use the -rfc option:</p>
-<pre class="prettyprint"><code>keytool -printcert -sslserver playframework.com -rfc
+<pre><code>keytool -printcert -sslserver playframework.com -rfc
 </code></pre>
 <p>which will return a series of certificates in PEM format:</p>
-<pre class="prettyprint"><code>-----BEGIN CERTIFICATE-----
+<pre><code>-----BEGIN CERTIFICATE-----
 ...
 -----END CERTIFICATE-----
 </code></pre>

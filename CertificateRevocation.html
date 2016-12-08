@@ -127,7 +127,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
   <li><a href="https://blogs.oracle.com/xuelei/entry/enable_ocsp_checking">Enable OCSP Checking</a></li>
 </ul>
 <p>To enable OCSP, you must set the following system properties on the command line:</p>
-<pre class="prettyprint"><code>java -Dcom.sun.security.enableCRLDP=true -Dcom.sun.net.ssl.checkRevocation=true
+<pre><code>java -Dcom.sun.security.enableCRLDP=true -Dcom.sun.net.ssl.checkRevocation=true
 </code></pre>
 <p>After doing the above, you can enable certificate revocation in the client:</p>
 <pre class="prettyprint"><code class="language-conf">ssl-config.checkRevocation = true
@@ -148,7 +148,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 }
 </code></pre>
 <p>And you should see something like the following output:</p>
-<pre class="prettyprint"><code>certpath: -Using checker7 ... [sun.security.provider.certpath.RevocationChecker]
+<pre class="prettyprint"><code class="nocode">certpath: -Using checker7 ... [sun.security.provider.certpath.RevocationChecker]
 certpath: connecting to OCSP service at: http://gtssl2-ocsp.geotrust.com
 certpath: OCSP response status: SUCCESSFUL
 certpath: OCSP response type: basic

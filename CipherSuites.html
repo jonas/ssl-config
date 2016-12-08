@@ -124,7 +124,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <p>The list of cipher suites has changed considerably between 1.6, 1.7 and 1.8.</p>
 <p>In 1.7 and 1.8, the default <a href="http://sim.ivi.co/2011/07/jsse-oracle-provider-preference-of-tls.html">out of the box</a> cipher suite list is used.</p>
 <p>In 1.6, the out of the box list is <a href="http://op-co.de/blog/posts/android_ssl_downgrade/">out of order</a>, with some weaker cipher suites configured in front of stronger ones, and contains a number of ciphers that are now considered weak. As such, the default list of enabled cipher suites is as follows:</p>
-<pre class="prettyprint"><code>&quot;TLS_DHE_RSA_WITH_AES_256_CBC_SHA&quot;,
+<pre><code>&quot;TLS_DHE_RSA_WITH_AES_256_CBC_SHA&quot;,
 &quot;TLS_DHE_RSA_WITH_AES_128_CBC_SHA&quot;,
 &quot;TLS_DHE_DSS_WITH_AES_128_CBC_SHA&quot;,
 &quot;TLS_RSA_WITH_AES_256_CBC_SHA&quot;,
@@ -162,7 +162,7 @@ jdk.tls.disabledAlgorithms=EC keySize &lt; 160, RSA keySize &lt; 2048, DSA keySi
 jdk.certpath.disabledAlgorithms=MD2, MD4, MD5, EC keySize &lt; 160, RSA keySize &lt; 2048, DSA keySize &lt; 2048
 </code></pre>
 <p>And then start up the JVM with <a href="http://bugs.java.com/bugdatabase/view_bug.do?bug_id=7133344">java.security.properties</a>:</p>
-<pre class="prettyprint"><code>java -Djava.security.properties=disabledAlgorithms.properties
+<pre><code>java -Djava.security.properties=disabledAlgorithms.properties
 </code></pre>
 <h2><a href="#debugging" name="debugging" class="anchor"><span class="anchor-link"></span></a>Debugging</h2>
 <p>To debug ciphers and weak keys, turn on the following debug settings:</p>

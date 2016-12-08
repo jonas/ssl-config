@@ -164,7 +164,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <p>This feature changes the setting of the <code>java.net.debug</code> system property which is global on the JVM. In addition, this feature <a href="https://tersesystems.com/2014/03/02/monkeypatching-java-classes/">changes static properties at runtime</a>, and is only intended for use in development environments.</p></div>
 <h2><a href="#verbose-debugging" name="verbose-debugging" class="anchor"><span class="anchor-link"></span></a>Verbose Debugging</h2>
 <p>To see the behavior of WS, you can configuring the SLF4J logger for debug output:</p>
-<pre class="prettyprint"><code>logger.play.api.libs.ws.ssl=DEBUG
+<pre><code>logger.play.api.libs.ws.ssl=DEBUG
 </code></pre>
 <h2><a href="#dynamic-debugging" name="dynamic-debugging" class="anchor"><span class="anchor-link"></span></a>Dynamic Debugging</h2>
 <p>If you are working with WSClient instances created dynamically, you can use the <code>SSLDebugConfig</code> class to set up debugging using a builder pattern:</p>
